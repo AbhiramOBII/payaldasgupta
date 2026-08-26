@@ -37,12 +37,12 @@
     ];
 
     $explore = [
-        ['label' => 'About Payal',               'href' => route('about'), 'external' => false],
-        ['label' => 'Work & Stories',             'href' => '#work',     'external' => false],
-        ['label' => 'Journal',                    'href' => route('journal.index'), 'external' => false],
-        ['label' => 'Communications Expertise',   'href' => route('services.index'), 'external' => false],
-        ['label' => 'Contact',                    'href' => route('contact'), 'external' => false],
-        ['label' => 'LinkedIn',                   'href' => 'https://www.linkedin.com/in/payyal-daasgupta-782aa510b/', 'external' => true],
+        ['label' => 'About Payal',  'href' => route('about'),            'external' => false],
+        ['label' => 'Services',     'href' => route('services.index'),   'external' => false],
+        ['label' => 'Industries',   'href' => route('industries.index'), 'external' => false],
+        ['label' => 'Journal',      'href' => route('journal.index'),    'external' => false],
+        ['label' => 'Contact',      'href' => route('contact'),          'external' => false],
+        ['label' => 'LinkedIn',     'href' => 'https://www.linkedin.com/in/payyal-daasgupta-782aa510b/', 'external' => true],
     ];
 @endphp
 
