@@ -1,0 +1,138 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../**/*.vue";
+
+@theme {
+    /* Brand Colors */
+    --color-primary-black:  #171717;
+    --color-warm-ivory:     #F6F1E8;
+    --color-soft-white:     #FFFCF7;
+    --color-muted-grey:     #716D67;
+    --color-border-grey:    #DDD7CF;
+    --color-burgundy:       #7A2E45;
+    --color-burgundy-dark:  #5E2235;
+
+    /* Footer-specific */
+    --color-footer-secondary: #B8B1A8;
+    --color-footer-divider:   #343434;
+
+    /* Typography */
+    --font-serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+    --font-sans:  'Manrope', 'Inter', Arial, sans-serif;
+}
+
+/* ── Marquee ──────────────────────────────────────────────────────── */
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+    animation: marquee 40s linear infinite;
+    will-change: transform;
+}
+
+.marquee-track:hover .animate-marquee {
+    animation-play-state: paused;
+}
+
+/* ── Background ticker rows ──────────────────────────────────────── */
+/*
+   Slow-scrolling industry word rows used as a background texture.
+   Left rows use the existing marquee keyframe (0 → -50%).
+   Right rows use animation-direction:reverse (-50% → 0), which is
+   seamless for the same reason: copy-A and copy-B are identical.
+*/
+.ticker-left       { animation: marquee 65s  linear infinite;         will-change: transform; }
+.ticker-left-med   { animation: marquee 80s  linear infinite;         will-change: transform; }
+.ticker-left-slow  { animation: marquee 95s  linear infinite;         will-change: transform; }
+.ticker-right      { animation: marquee 72s  linear infinite reverse; will-change: transform; }
+.ticker-right-slow { animation: marquee 88s  linear infinite reverse; will-change: transform; }
+
+/* ── Admin form utilities ────────────────────────────────────────── */
+.form-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-muted-grey);
+    margin-bottom: 6px;
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    color: var(--color-primary-black);
+    background-color: var(--color-soft-white);
+    border: 1px solid var(--color-border-grey);
+    border-radius: 6px;
+    padding: 9px 12px;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.form-input:focus {
+    border-color: var(--color-primary-black);
+}
+
+select.form-input {
+    cursor: pointer;
+}
+
+textarea.form-input {
+    resize: vertical;
+    min-height: 72px;
+}
+
+.form-error {
+    margin-top: 5px;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: #ef4444;
+}
+
+/* ── Prose: CKEditor rich-text output on public pages ────────────── */
+.prose-editorial { font-family: var(--font-sans); color: var(--color-primary-black); }
+.prose-editorial p  { font-size: 15.5px; line-height: 1.85; margin-bottom: 1.25em; color: rgba(23,23,23,0.75); }
+.prose-editorial h2 { font-family: var(--font-serif); font-size: clamp(1.4rem,2.5vw,1.9rem); line-height: 1.1; letter-spacing: -0.02em; color: var(--color-primary-black); margin: 2em 0 0.65em; }
+.prose-editorial h3 { font-family: var(--font-serif); font-size: clamp(1.1rem,2vw,1.4rem); line-height: 1.15; color: var(--color-primary-black); margin: 1.75em 0 0.5em; }
+.prose-editorial ul, .prose-editorial ol { padding-left: 1.4em; margin-bottom: 1.25em; }
+.prose-editorial ul { list-style-type: disc; }
+.prose-editorial ol { list-style-type: decimal; }
+.prose-editorial li { font-size: 15.5px; line-height: 1.8; color: rgba(23,23,23,0.75); margin-bottom: 0.4em; }
+.prose-editorial strong { font-weight: 600; color: var(--color-primary-black); }
+.prose-editorial em    { font-style: italic; }
+.prose-editorial blockquote { border-left: 2px solid var(--color-burgundy); padding-left: 1.25em; margin: 1.5em 0; font-style: italic; color: rgba(23,23,23,0.65); }
+.prose-editorial a { color: var(--color-burgundy); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── Legal prose (privacy policy / terms) ────────────────────────── */
+.prose-legal h2 { font-family: var(--font-serif); font-size: clamp(1.5rem,2.5vw,2rem); line-height: 1.1; letter-spacing: -0.02em; color: var(--color-primary-black); margin: 0 0 1em; }
+.prose-legal h3 { font-family: var(--font-serif); font-size: clamp(1.05rem,1.8vw,1.25rem); line-height: 1.2; color: var(--color-primary-black); margin: 2em 0 0.5em; font-weight: 500; }
+.prose-legal p  { margin-bottom: 1.1em; }
+.prose-legal ul, .prose-legal ol { padding-left: 1.4em; margin-bottom: 1.1em; }
+.prose-legal ul { list-style-type: disc; }
+.prose-legal ol { list-style-type: decimal; }
+.prose-legal li { margin-bottom: 0.3em; }
+.prose-legal a  { color: var(--color-burgundy); text-decoration: underline; text-underline-offset: 3px; }
+.prose-legal strong { font-weight: 600; color: var(--color-primary-black); }
+
+/* ── Base ─────────────────────────────────────────────────────────── */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-warm-ivory);
+    color: var(--color-primary-black);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
