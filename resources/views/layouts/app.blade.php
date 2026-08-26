@@ -7,6 +7,9 @@
 
     <title>@yield('title', 'Payal Dasgupta — Communications Strategist')</title>
     <meta name="description" content="@yield('meta_description', 'Senior Communications Strategist, PR Professional and Brand Storyteller.')">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
 
     {{-- Fonts: DM Serif Display (editorial headings) + Manrope (UI / body) --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
