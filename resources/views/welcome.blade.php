@@ -62,7 +62,7 @@
                         </a>
 
                         {{-- Secondary --}}
-                        <a href="#work"
+                        <a href="{{ route('services.index') }}"
                            class="inline-flex items-center gap-2 font-sans text-[13.5px]
                                   font-medium text-primary-black/60
                                   hover:text-primary-black
